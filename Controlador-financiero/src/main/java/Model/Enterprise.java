@@ -1,6 +1,7 @@
-import java.time.LocalDate;
+package Model;
+
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.List;
 
 public class Enterprise {
 
@@ -16,7 +17,7 @@ public class Enterprise {
 
     private List<User> users;
 
-    private List<Transactions> transactions;
+    private List<Transaction> transaction;
 
     private LocalDateTime createdAt;
 
@@ -26,7 +27,7 @@ public class Enterprise {
     //Constructor
 
     public Enterprise(long id, String name, String document, String phone, String address,
-                      List<User> users, List<Transactions> transactions, LocalDateTime createdAt,
+                      List<User> users, List<Transaction> transaction, LocalDateTime createdAt,
                       LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
@@ -34,7 +35,7 @@ public class Enterprise {
         this.phone = phone;
         this.address = address;
         this.users = users;
-        this.transactions = transactions;
+        this.transaction = transaction;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -91,12 +92,12 @@ public class Enterprise {
         this.users = users;
     }
 
-    public List<Transactions> getTransactions() {
-        return transactions;
+    public List<Transaction> getTransaction() {
+        return transaction;
     }
 
-    public void setTransactions(List<Transactions> transactions) {
-        this.transactions = transactions;
+    public void setTransaction(List<Transaction> transaction) {
+        this.transaction = transaction;
     }
 
     public LocalDateTime getCreatedAt() {
