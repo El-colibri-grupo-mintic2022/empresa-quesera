@@ -2,72 +2,77 @@ package Model;
 
 import org.apache.catalina.User;
 
+import java.time.LocalDateTime;
 
-public class profile {
+
+public class Profile {
 
     private String id;
     private String image;
     private String phone;
     private User user;
-    private updatedAt date;
-    private updatedAt date1;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime  updatedAt;
 
 
-    public profile(String id, String image, String phone, User user, updatedAt date, updatedAt date1) {
-            this.id = id;
-            this.image = image;
-            this.phone = phone;
-            this.user = user;
-            this.date = date;
-            this.date = date1;
-        }
-
-
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-
-        public String getImage() {
-            return image;
-        }
-
-        public void setImage(String image) {
-            this.image = image;
-        }
-
-        public String getPhone() {
-            return phone;
-        }
-
-        public void setPhone(String phone) {
-            this.phone = phone;
-        }
-
-        public User getUser() {
-            return user;
-        }
-
-        public void setUser(User user) {
-            this.user = user;
-        }
-
-        public updatedAt getDate1() {
-            return date1;
-        }
-
-        public void setDate1(updatedAt date) {
-            this.date = date;
-        }
-
-        public void setDate(updatedAt date) {
-            this.date = date;
-        }
-
+    public Profile(String id, String image, String phone, User user, LocalDateTime createdAt,
+                   LocalDateTime updatedAt) {
+        this.id = id;
+        this.image = image;
+        this.phone = phone;
+        this.user = user;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
+
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+    public void setUpdatedAt(LocalDateTime updatedAt) {this.updatedAt = updatedAt;}
+
+}
+
 
 
