@@ -1,0 +1,64 @@
+        private String phone;
+        private User user;
+        private createdAt date;
+        private updatedAt date;
+
+    public profile() {
+        //constructor vacio
+    }
+
+    public profile(String id, String image, String phone, User user, createdAt date, updatedAt date1) {
+        this.id = id;
+        this.image = image;
+        this.phone = phone;
+        this.user = user;
+        this.date = date;
+        this.date = date1;
+    }
+    //get y setter
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public createdAt getDate() {
+        return date;
+    }
+
+    public void setDate(updatedAt date) {
+        this.date = date;
+    }
+
+    public void setDate(createdAt date) {
+        this.date = date;
+    }
+}
