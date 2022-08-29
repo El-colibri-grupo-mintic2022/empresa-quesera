@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-public class Transaction {
+public class Transaction <Enterprise, user> {
     private long id;
 
     private String concept;
@@ -13,7 +13,7 @@ public class Transaction {
 
     private user user;
 
-    private E enterprise;
+    private Enterprise enterprise;
 
     private LocalDateTime createdAt;
 
@@ -27,7 +27,7 @@ public class Transaction {
         this.concept = concept;
         this.amount = amount;
         this.user = user;
-        this.Enterprise = enterprise;
+        this.enterprise = enterprise;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -68,11 +68,11 @@ public class Transaction {
     }
 
     public Enterprise getEnterprise() {
-        return Enterprise;
+        return enterprise;
     }
 
     public void setEnterprise(Enterprise enterprise) {
-        this.Enterprise = enterprise;
+        this.enterprise = enterprise;
     }
 
     public LocalDateTime getCreatedAt() {

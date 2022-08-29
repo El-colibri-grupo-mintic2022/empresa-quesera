@@ -29,6 +29,7 @@ public class Enterprise {
     public Enterprise(long id, String name, String document, String phone, String address,
                       List<User> users, List<Transaction> transaction, LocalDateTime createdAt,
                       LocalDateTime updatedAt) {
+        super();
         this.id = id;
         this.name = name;
         this.document = document;
