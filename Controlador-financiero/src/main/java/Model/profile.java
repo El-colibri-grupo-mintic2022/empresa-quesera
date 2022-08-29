@@ -17,7 +17,7 @@ public class Profile {
     private LocalDateTime  updatedAt;
 
 
-    public Profile(String id, String image, String phone, User user, LocalDateTime createdAt,
+    public profile(String id, String image, String phone, User user, LocalDateTime createdAt,
                    LocalDateTime updatedAt) {
             this.id = id;
             this.image = image;
