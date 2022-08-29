@@ -55,3 +55,4 @@ public class User <Enterprise> {
     public void setProfile(profile profile) {
         this.profile = profile;
     }
+}
