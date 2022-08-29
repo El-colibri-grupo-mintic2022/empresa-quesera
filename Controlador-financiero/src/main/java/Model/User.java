@@ -4,12 +4,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 
-public class User <Enterprise> {
+public class User  {
     private long id;
 
     private String email;
 
-    private profile profile;
+    private Profile profile;
 
     private Enum_RoleName role;
 
@@ -21,7 +21,7 @@ public class User <Enterprise> {
 
     private LocalDateTime updatedAt;
 
-    public User(long id, String email, profile profile, Enum_RoleName role, Enterprise enterprise, List<Transaction> transaction, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public User(long id, String email, Profile profile, Enum_RoleName role, Enterprise enterprise, List<Transaction> transaction, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.email = email;
         this.profile = profile;
@@ -48,11 +48,11 @@ public class User <Enterprise> {
         this.email = email;
     }
 
-    public profile getProfile() {
+    public Profile getProfile() {
         return profile;
     }
 
-    public void setProfile(profile profile) {
+    public void setProfile(Profile profile) {
         this.profile = profile;
     }
 }
