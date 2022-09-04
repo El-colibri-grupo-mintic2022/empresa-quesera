@@ -1,26 +1,45 @@
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonTypeId;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import java.lang.annotation.Repeatable;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
+@Entity
+@Table
 public class Enterprise {
 
+    @Id
     private long id;
 
+    @Column(length = 50, nullable = false)
+    @Column(unique=true)
     private String name;
 
+    @Column(length = 50, nullable = false)
+    @Column(unique=true)
     private String document;
 
+    @Column(length = 50, nullable = false)
     private String phone;
 
+    @Column(length = 50, nullable = false)
     private String address;
 
+    @Column(length = 50, nullable = false)
     private List<User> users;
 
+
+    @Column(length = 50, nullable = false)
     private List<Transaction> transaction;
 
+    @Column(length = 50)
     private LocalDateTime createdAt;
 
+    @Column(length = 50)
     private LocalDateTime  updatedAt;
 
 
