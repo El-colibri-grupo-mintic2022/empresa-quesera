@@ -1,4 +1,4 @@
-package Model;
+package com.Elcolibri.Controlador.financiero.Model;
 
 import org.apache.catalina.User;
 
