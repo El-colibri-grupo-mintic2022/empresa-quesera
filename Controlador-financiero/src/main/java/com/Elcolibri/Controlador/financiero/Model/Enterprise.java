@@ -1,4 +1,4 @@
-package Model;
+package com.Elcolibri.Controlador.financiero.Model;
 
 import java.time.LocalDateTime;
 import java.util.List;
