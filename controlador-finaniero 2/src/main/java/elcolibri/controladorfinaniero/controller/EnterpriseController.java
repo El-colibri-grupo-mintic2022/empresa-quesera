@@ -2,7 +2,6 @@ package elcolibri.controladorfinaniero.controller;
 
 import elcolibri.controladorfinaniero.model.Enterprise;
 import elcolibri.controladorfinaniero.service.EnterpriseService;
-import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,33 +12,33 @@ import java.util.List;
 public class EnterpriseController {
 
     @Autowired
+
     private EnterpriseService service;
 
     @GetMapping
-    public List<Enterprise> readAll(){
+    public List<Enterprise> readAll() throws Exception{
         return service.readAll();
     }
 
     @PostMapping
-    public Enterprise create(@RequestBody Enterprise enterprise){
+    public Enterprise create(@RequestBody Enterprise enterprise) throws Exception{
         return service.create(enterprise);
     }
 
     @GetMapping("/{id}")
-    public Enterprise readById(@PathVariable("id") Long id){
-        return  service.readById(id);
+    public Enterprise readById(@PathVariable("id") Integer id) throws Exception{
+        return service.readById(id);
     }
 
     @PutMapping
-    public Enterprise update(@RequestBody Enterprise enterprise){
+    public Enterprise update(@RequestBody Enterprise enterprise) throws Exception{
         return service.update(enterprise);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") Long id){
+    public void delete(@PathVariable("id") Integer id) throws Exception{
         service.delete(id);
     }
 
-
-
 }
+

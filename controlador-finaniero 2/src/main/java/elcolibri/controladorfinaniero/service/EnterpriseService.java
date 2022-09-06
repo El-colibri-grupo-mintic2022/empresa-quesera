@@ -8,10 +8,11 @@ import java.util.Locale;
 
 public interface EnterpriseService {
 
-    Enterprise create (Enterprise enterprise);
-    Enterprise update (Enterprise enterprise);
-    List<Enterprise> readAll();
-    Enterprise readById(Long id);
-    void delete(Long id);
+    Enterprise create(Enterprise enterprise) throws Exception;
+    Enterprise update(Enterprise enterprise) throws Exception;
+    List<Enterprise> readAll() throws Exception;
+    Enterprise readById(Integer id) throws Exception;
+    void delete(Integer id) throws Exception;
+
 
 }
