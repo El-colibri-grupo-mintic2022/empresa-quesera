@@ -34,12 +34,8 @@ public class EmpleadoService {
     }
 
     //Metodo para guardar o actualizar registros en Empleados
-    public boolean saveOrUpdateEmpleado(Empleado empl){
-        Empleado emp=empleadoRepository.save(empl);
-        if (empleadoRepository.findById(emp.getId())!=null){
-            return true;
-        }
-        return false;
+    public Empleado saveOrUpdateEmpleado(Empleado empleado){
+        return empleadoRepository.save(empleado);
     }
 
     //Metodo para eliminar un registro de Empleado por Id
