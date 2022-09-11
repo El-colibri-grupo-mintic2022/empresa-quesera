@@ -1,20 +1,13 @@
 package el_colibri.controladorfianaciero3.service;
 
-import el_colibri.controladorfianaciero3.model.Empleado;
 import el_colibri.controladorfianaciero3.model.Empresa;
-import el_colibri.controladorfianaciero3.model.MovimientoDinero;
-import el_colibri.controladorfianaciero3.service.EmpleadoService;
-import el_colibri.controladorfianaciero3.service.EmpresaService;
-import el_colibri.controladorfianaciero3.service.MovimientosService;
+import el_colibri.controladorfianaciero3.repository.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.stereotype.Service;
 
 @Service
 public class EmpresaService {
@@ -34,7 +27,7 @@ public class EmpresaService {
     }
 
     //Metodo para guardar o actualizar objetos de tipo Empresa
-    public boolean saveOrUpdateEmpresa(Empresa empresa){
+    public Empresa saveOrUpdateEmpresa(Empresa empresa){
         Empresa emp=empresaRepository.save(empresa);
         if (empresaRepository.findById(emp.getId())!=null){
             return true;
