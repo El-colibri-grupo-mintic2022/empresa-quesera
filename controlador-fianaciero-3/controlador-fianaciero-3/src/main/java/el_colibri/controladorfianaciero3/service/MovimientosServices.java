@@ -1,27 +1,20 @@
 package el_colibri.controladorfianaciero3.service;
 
-import el_colibri.controladorfianaciero3.model.Empleado;
-import el_colibri.controladorfianaciero3.model.Empresa;
 import el_colibri.controladorfianaciero3.model.MovimientoDinero;
-import el_colibri.controladorfianaciero3.service.EmpleadoService;
-import el_colibri.controladorfianaciero3.service.EmpresaService;
-import el_colibri.controladorfianaciero3.service.MovimientosService;
+import el_colibri.controladorfianaciero3.repository.MovimientosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.data.domain.PageRequest;
+
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
-public class MovimientosService {
+public class MovimientosServices {
     @Autowired
     MovimientosRepository movimientosRepository;
 
-    public List<MovimientoDinero> getAllMovimientos(PageRequest of){ //Metodo que me muestra todos los movimientos sin ningn filtro
+    public List<MovimientoDinero> getAllMovimientos(){ //Metodo que me muestra todos los movimientos sin ningn filtro
         List<MovimientoDinero> movimientosList = new ArrayList<>();
         movimientosRepository.findAll().forEach(movimiento -> movimientosList.add(movimiento));  //Recorremos el iterable que regresa el metodo findAll del Jpa y lo guardamos en la lista creada
         return movimientosList;
@@ -31,12 +24,9 @@ public class MovimientosService {
         return movimientosRepository.findById(id).get();
     }
 
-    public boolean saveOrUpdateMovimiento(MovimientoDinero movimientoDinero){ //Guardar o actualizar elementos
+    public MovimientoDinero saveOrUpdateMovimiento(MovimientoDinero movimientoDinero){ //Guardar o actualizar elementos
         MovimientoDinero mov=movimientosRepository.save(movimientoDinero);
-        if (movimientosRepository.findById(mov.getId())!=null){
-            return true;
-        }
-        return false;
+        return mov;
     }
 
     public boolean deleteMovimiento(Integer id){ //Eliminar movimiento por id
@@ -54,21 +44,4 @@ public class MovimientosService {
     public ArrayList<MovimientoDinero> obtenerPorEmpresa(Integer id) { //Obtener movimientos teniendo en cuenta el id de la empresa a la que pertencen los empleados que la registraron
         return movimientosRepository.findByEmpresa(id);
     }
-
-    //Servicio para ver la suma de todos los montos
-    public Long obtenerSumaMontos(){
-        return movimientosRepository.SumarMonto();
-    }
-
-    //Servicio para ver la suma de los montos por empleado
-    public Long MontosPorEmpleado(Integer id){
-        return movimientosRepository.MontosPorEmpleado(id);
-    }
-
-    //Servicio para ver la suma de los montos por empresa
-    public Long MontosPorEmpresa(Integer id){
-        return movimientosRepository.MontosPorEmpresa(id);
-    }
-
-
 }

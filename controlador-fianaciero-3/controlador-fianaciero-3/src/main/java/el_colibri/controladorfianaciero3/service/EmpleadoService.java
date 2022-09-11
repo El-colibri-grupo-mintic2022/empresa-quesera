@@ -1,13 +1,9 @@
 package el_colibri.controladorfianaciero3.service;
 
 import el_colibri.controladorfianaciero3.model.Empleado;
-import el_colibri.controladorfianaciero3.model.Empresa;
-import el_colibri.controladorfianaciero3.model.MovimientoDinero;
-import el_colibri.controladorfianaciero3.service.EmpleadoService;
-import el_colibri.controladorfianaciero3.service.EmpresaService;
-import el_colibri.controladorfianaciero3.service.MovimientosService;
+import el_colibri.controladorfianaciero3.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
