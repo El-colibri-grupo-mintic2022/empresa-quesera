@@ -1,4 +1,7 @@
-import com.MASCiclo3.demo.Modelos.MovimientoDinero;
+package el_colibri.controladorfianaciero3.repository;
+
+
+import el_colibri.controladorfianaciero3.model.MovimientoDinero;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,6 @@
 package el_colibri.controladorfianaciero3.model;
 
 import javax.persistence.*;
-import javax.persistence.*;
 
 @Entity
 @Table(name="Movimientos")
