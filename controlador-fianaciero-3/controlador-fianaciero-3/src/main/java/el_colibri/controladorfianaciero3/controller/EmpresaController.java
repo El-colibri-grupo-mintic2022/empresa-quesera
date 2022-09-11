@@ -1,9 +1,17 @@
 package el_colibri.controladorfianaciero3.controller;
 
 
+import el_colibri.controladorfianaciero3.model.Empleado;
 import el_colibri.controladorfianaciero3.model.Empresa;
+import el_colibri.controladorfianaciero3.model.MovimientoDinero;
+import el_colibri.controladorfianaciero3.service.EmpleadoService;
+import el_colibri.controladorfianaciero3.service.EmpresaService;
+import el_colibri.controladorfianaciero3.service.MovimientosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class Controllers {
@@ -15,11 +23,13 @@ public class Controllers {
 
     @GetMapping("/enterprises") //Ver json de todas las empresas
     public List<Empresa> verEmpresas(){
-        return empresaService.getAllEmpresas();
+
+        return EmpresaService.getAllEmpresas();
     }
 
     @PostMapping("/enterprises") //Guardar el json del body como una nueva empresa o registro en nuestra bd
     public Empresa guardarEmpresa(@RequestBody Empresa emp){
+
         return this.empresaService.saveOrUpdateEmpresa(emp);
     }
 
