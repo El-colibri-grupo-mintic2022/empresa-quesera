@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Lista de Empresas - Ciclo3</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <style>
+    body{
+    background-color: #2C3539;
+    }
+    a {
+    color:white;
+    }
+    .u{
+    color:white;
+    text-align: Right;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    }
+    .t {
+    color:white;
+    text-align: center;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+    }
+    a:hover {
+    color: black;
+    text-decoration:none;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <p th:inline="text" class="u">Usuario: [[${#httpServletRequest.remoteUser}]]</p>
+  <button type="button" class="btn btn-danger" style="float:right"><a th:href="@{/logout}">Cerrar Sesión</a></button>
+  <br><p class="t">LISTA DE EMPRESAS</p>
+  <!--Dibujamos la tabla-->
+  <br><table class="table table-bordered">
+  <tr>
+    <th><a>ID</a></th>
+    <th><a>Nombre</a></th>
+    <th><a>Dirección</a></th>
+    <th><a>Telefono</a></th>
+    <th><a>NIT</a></th>
+    <th><a>Empleados</a></th>
+    <th><a>Movimientos</a></th>
+    <th><a>Editar</a></th>
+    <th><a>Editar</a></th>
+
+  </tr>
+
+  <!--Llenamos la tabla dibujada-->
+  <!--En nuestro controller, creamos en viewEmpresa un modelo con un atributo llamado emplist donde esta guardada la lista de todas las empresas-->
+  <tr th:each="empresa : ${emplist}">
+    <td><a th:text="${empresa.id}"></a></td>
+    <td><a th:text="${empresa.nombre}"></a></td>
+    <td><a th:text="${empresa.direccion}"></a></td>
+    <td><a th:text="${empresa.telefono}"></a></td>
+    <td><a th:text="${empresa.NIT}"></a></td>
+    <td><button type="button" class="btn btn-info"><a th:href="@{/Empresa/{id}/Empleados (id=${empresa.id})}">Ver</a></button></td>
+    <td><button type="button" class="btn btn-primary"><a th:href="@{/Empresa/{id}/Movimientos (id=${empresa.id})}">Ver</a></button></td>
+    <td><button type="button" class="btn btn-warning"><a th:href="@{/EditarEmpresa/{id}(id=${empresa.id})}">Editar</a></button></td>
+    <td><button type="button" class="btn btn-danger"><a th:href="@{/EliminarEmpresa/{id}(id=${empresa.id})}">Eliminar</a></button></td>
+  </tr>
+</table>
+
+  <!-- vamos a crear un boton que sirva para agregar nuevas empresas -->
+  <button type="button" class="btn btn-info" style="float:right"><a th:href="@{/AgregarEmpresa}">Agregar Nueva Empresa</a></button>
+  <button type="button" class="btn btn-primary"><a th:href="@{/VerEmpleados}">Ver lista de Empleados</a></button>
+
+</div>
+
+<script th:inline="javascript">
+    window.onload=function(){
+
+        var msg= [[${mensaje}]];
+        if (msg == "saveOK"){
+            Command : toastr["success"]("Empresa creada con éxito!")
+            }
+        else if (msg == "updateOK"){
+            Command : toastr["success"]("Empresa actualizada con éxito!")
+        }
+        else if (msg == "deleteOK"){
+            Command : toastr["error"]("Empresa eliminada con éxito!")
+        }
+        else if (msg == "deleteError"){
+            Command : toastr["error"]("Empresa no ha sido eliminada!")
+        }
+        toastr.options={
+            "positionClass": "toast-top-right",
+            "showDuration":"300",
+            "showMethod":"fadeIn",
+            "hideMethod":"fadeOut",
+        }
+
+
+    }
+
+</script>
+</body>
+</html>
